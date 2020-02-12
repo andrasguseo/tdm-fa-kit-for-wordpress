@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Font Awesome Kit for Wordpress\n"
-"POT-Creation-Date: 2020-02-12 23:08+0100\n"
+"POT-Creation-Date: 2020-02-12 23:20+0100\n"
 "PO-Revision-Date: 2020-02-12 22:24+0100\n"
 "Last-Translator: András Guseo <aguseo@gmail.com>\n"
 "Language-Team: András Guseo <aguseo@gmail.com>\n"
@@ -71,11 +71,11 @@ msgstr ""
 msgid "Instructions"
 msgstr ""
 
-#: tdm-fa-kit-for-wordpress.php:180 tdm-fa-kit-for-wordpress.php:203
+#: tdm-fa-kit-for-wordpress.php:180 tdm-fa-kit-for-wordpress.php:200
 msgid "Font Awesome Kit Code"
 msgstr ""
 
-#: tdm-fa-kit-for-wordpress.php:206
+#: tdm-fa-kit-for-wordpress.php:203
 msgid "If you see the Font Awesome flag here, the code works."
 msgstr ""
 

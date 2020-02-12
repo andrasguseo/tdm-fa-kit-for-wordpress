@@ -99,12 +99,12 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 		 */
 		function tdm_fakitforwp_menu() {
 			add_submenu_page(
-				'options-general.php',            // The menu where it appears
-				'Font Awesome Kit',               // The title to be displayed in the browser window for this page.
-				'Font Awesome Kit',               // The text to be displayed for this menu item
-				'administrator',                  // Which type of users can see this menu item
-				'tdm_fakitforwp',         // The unique ID - that is, the slug - for this menu item
-				[ $this, 'tdm_fakitforwp_options_display' ]  // The name of the function to call when rendering this menu's page
+				'options-general.php',                          // The menu where it appears
+				'Font Awesome Kit',                             // The title to be displayed in the browser window for this page.
+				'Font Awesome Kit',                             // The text to be displayed for this menu item
+				'administrator',                                // Which type of users can see this menu item
+				'tdm_fakitforwp',                               // The unique ID - that is, the slug - for this menu item
+				[ $this, 'tdm_fakitforwp_options_display' ]     // The name of the function to call when rendering this menu's page
 			);
 		}
 
@@ -169,25 +169,25 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 
 			// Register a section
 			add_settings_section(
-				'fontawesome_settings_section',            // ID used to identify this section and with which to register options
-				__( 'Instructions', 'tdm-font-awesome-kit-for-wordpress' ),                                        // Title to be displayed on the administration page
-				[ $this, 'tdm_fakitforwp_options_callback' ], // Callback used to render the description of the section
-				'tdm_fakitforwp_options_page'           // Page on which to add this section of options
+				'fontawesome_settings_section',                                 // ID used to identify this section and with which to register options
+				__( 'Instructions', 'tdm-font-awesome-kit-for-wordpress' ),     // Title to be displayed on the administration page
+				[ $this, 'tdm_fakitforwp_options_callback' ],                   // Callback used to render the description of the section
+				'tdm_fakitforwp_options_page'                                   // Page on which to add this section of options
 			);
 
 			add_settings_field(
-				'fontawesome_kit_code',                    // ID used to identify the field throughout the theme
-				__( 'Font Awesome Kit Code', 'tdm-font-awesome-kit-for-wordpress' ),                   // The label to the left of the option interface element
-				[ $this, 'tdm_fakitforwp_code_callback' ],            // The name of the function responsible for rendering the option interface
-				'tdm_fakitforwp_options_page',                 // The page on which this option will be displayed
-				'fontawesome_settings_section'            // The name of the section to which this field belongs
+				'fontawesome_kit_code',                                                 // ID used to identify the field throughout the theme
+				__( 'Font Awesome Kit Code', 'tdm-font-awesome-kit-for-wordpress' ),    // The label to the left of the option interface element
+				[ $this, 'tdm_fakitforwp_code_callback' ],                              // The name of the function responsible for rendering the option interface
+				'tdm_fakitforwp_options_page',                                          // The page on which this option will be displayed
+				'fontawesome_settings_section'                                          // The name of the section to which this field belongs
 			);
 
 			// Register the fields with WordPress
 			register_setting(
-				'tdm_fakitforwp_options_group',   // Settings group name
-				'tdm_fakitforwp_options',   // Name of the option
-				'tdm_fakitforwp_validate_input'                       // Arguments
+				'tdm_fakitforwp_options_group',     // Settings group name
+				'tdm_fakitforwp_options',           // Name of the option
+				'tdm_fakitforwp_validate_input'     // Arguments
 			);
 
 		}
@@ -246,4 +246,4 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 	}
 }
 
-$abc = new Tdm__Font_Awesome_Kit_for_WordPress();
+$tdm_fakitforwp = new Tdm__Font_Awesome_Kit_for_WordPress();
