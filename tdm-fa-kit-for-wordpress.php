@@ -46,6 +46,10 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 
 			// Render plugin options page
 			add_action( 'admin_menu', [ $this, 'tdm_fakitforwp_menu' ], 99 );
+
+			// Add script to head
+			add_action( 'wp_head', [ $this, 'child_theme_head_script' ] );
+			add_action( 'admin_head', [ $this, 'child_theme_head_script' ] );
 			
 			// Uninstall
 			register_uninstall_hook( __FILE__, 'uninstall_tdm_fakitforwp' );
@@ -200,7 +204,22 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 		 */
 		function tdm_fakitforwp_code_callback() {
 			$options = get_option( 'tdm_fakitforwp_options' );
-			echo 'https://kit.fontawesome.com/<input type="text" id="fontawesome_kit_code" name="tdm_fakitforwp_options[fontawesome_kit_code]" value="' . ( $options != "" ? $options['fontawesome_kit_code'] : "" ) . '"  placeholder="Font Awesome Kit Code" />.js';
+			echo '<p>https://kit.fontawesome.com/<input type="text" id="fontawesome_kit_code" name="tdm_fakitforwp_options[fontawesome_kit_code]" value="' . ( $options != "" ? $options['fontawesome_kit_code'] : "" ) . '"  placeholder="Font Awesome Kit Code" />.js</p>';
+
+			if( ! empty( $options['fontawesome_kit_code'] ) ) {
+				echo '<i class="fab fa-font-awesome-alt fa-2x"></i> &lt;-- If you see the Font Awesome flag here, the code works.';
+			}
+		}
+
+		/**
+		 * Adds the script to the header if option exists
+		 */
+		function child_theme_head_script() {
+			$options = get_option( 'tdm_fakitforwp_options' );
+			if ( isset( $options['fontawesome_kit_code'] ) && ! empty( $options['fontawesome_kit_code'] ) ) {
+				?>
+				<script src="https://kit.fontawesome.com/<?php echo $options['fontawesome_kit_code'] ?>.js" crossorigin="anonymous"></script>
+			<?php }
 		}
 
 		/**
