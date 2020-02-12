@@ -189,8 +189,8 @@ function tdm_toggle_fakitforwp_callback( $args ) {
 
 function tdm_fakitforwp_embed_code_callback() {
 	$options = get_option( 'tdm_fakitforwp_display_options' );
-	echo 'https://kit.fontawesome.com/<input type="text" id="fontawesome_embed_code" name="tdm_fakitforwp_display_options[fontawesome_embed_code]" value="' . ( $options != "" ? $options['fontawesome_embed_code'] : "" ) . '" crossorigin="anonymous" placeholder="Font Awesome Embed Code" />.js   (You can get the code <a href="https://fontawesome.com/v4.7.0/get-started/" target="_blank">here</a>.</em>)<br/>';
-	echo 'Paste here the Font Awesome Embed Code that you received by email from the Font Awesome guys. This field is required, it will not work without this.<br/><em>Don\'t copy the full code, only copy the base of the file name, what you see in bold: &lt;script src="https://use.fontawesome.com/<strong>{uniquenum}</strong>.js"&gt;&lt;/script&gt;<br/>Don\'t have a code yet? You can <a href="http://fontawesome.io/get-started/" target="_blank">get it here</a>.</em>';
+	echo 'https://kit.fontawesome.com/<input type="text" id="fontawesome_embed_code" name="tdm_fakitforwp_display_options[fontawesome_embed_code]" value="' . ( $options != "" ? $options['fontawesome_embed_code'] : "" ) . '" crossorigin="anonymous" placeholder="Font Awesome Embed Code" />.js   (You can get the code <a href="https://fontawesome.com/start" target="_blank">here</a>.</em>)<br/>';
+	echo 'Paste here the Font Awesome Kit code. This field is required, it will not work without this.<br/><em>Don\'t copy the full code, only copy the base of the file name, what you see in bold: &lt;script src="https://kit.fontawesome.com/<strong>{uniquenum}</strong>.js"&gt;&lt;/script&gt;<br/>Don\'t have a code yet? You can <a href="https://fontawesome.com/start" target="_blank">get it here</a>.</em>';
 
 } // END tdm_fakitforwp_embed_code_callback
 
@@ -202,62 +202,6 @@ function tdm_toggle_load_anyway_callback( $args ) {
 	echo $html;
 
 } // END tdm_toggle_load_anyway_callback
-
-function tdm_toggle_keep_settings_callback( $args ) {
-
-	$options = get_option( 'tdm_fakitforwp_display_options' );
-	$html    = '<input type="checkbox" id="keep_settings" name="tdm_fakitforwp_display_options[keep_settings]" value="1" ' . checked( 1, ( $options != "" ? $options['keep_settings'] : "" ), false ) . '/>';
-	$html    .= '<label for="keep_settings"> ' . $args[0] . '</label>';
-	echo $html;
-
-} // END tdm_toggle_keep_settings_callback
-
-function tdm_toggle_override_tinymce_callback( $args ) {
-
-	$options = get_option( 'tdm_fakitforwp_display_options' );
-	$html    = '<input type="checkbox" id="override_tinymce" name="tdm_fakitforwp_display_options[override_tinymce]" value="1" ' . checked( 1, ( $options != "" ? $options['override_tinymce'] : "" ), false ) . '/>';
-	$html    .= '<label for="override_tinymce"> ' . $args[0] . '</label>';
-	echo $html;
-
-} // END tdm_toggle_override_tinymce_callback
-
-function list_left_margin_input_element_callback() {
-	$options = get_option( 'tdm_fakitforwp_display_options' );
-	echo '<input type="text" id="list_left_margin" name="tdm_fakitforwp_display_options[list_left_margin]" value="' . ( $options != "" ? $options['list_left_margin'] : "" ) . '" placeholder="E.g. 10px or 1.5em" /> ';
-	echo '<em>If empty, Font Awesome default is used: 2.14286em</em>';
-
-} // END list_left_margin_input_element_callback
-
-function list_right_margin_input_element_callback() {
-	$options = get_option( 'tdm_fakitforwp_display_options' );
-	echo '<input type="text" id="list_right_margin" name="tdm_fakitforwp_display_options[list_right_margin]" value="' . ( $options != "" ? $options['list_right_margin'] : "" ) . '" placeholder="E.g. 10px or 1.5em" />';
-
-} // END list_right_margin_input_element_callback
-
-function list_top_margin_input_element_callback() {
-	$options = get_option( 'tdm_fakitforwp_display_options' );
-	echo '<input type="text" id="list_top_margin" name="tdm_fakitforwp_display_options[list_top_margin]" value="' . ( $options != "" ? $options['list_top_margin'] : "" ) . '" placeholder="E.g. 10px or 1.5em" />';
-
-} // END list_top_margin_input_element_callback
-
-function list_bottom_margin_input_element_callback() {
-	$options = get_option( 'tdm_fakitforwp_display_options' );
-	echo '<input type="text" id="list_bottom_margin" name="tdm_fakitforwp_display_options[list_bottom_margin]" value="' . ( $options != "" ? $options['list_bottom_margin'] : "" ) . '" placeholder="E.g. 10px or 1.5em" />';
-
-} // END list_bottom_margin_input_element_callback
-
-function item_distance_from_bullet_input_element_callback() {
-	$options = get_option( 'tdm_fakitforwp_display_options' );
-	echo '<input type="text" id="item_distance_from_bullet" name="tdm_fakitforwp_display_options[item_distance_from_bullet]" value="' . ( $options != "" ? $options['item_distance_from_bullet'] : "" ) . '" placeholder="E.g. 10px or 1.5em" />';
-
-} // END item_distance_from_bullet_input_element_callback
-
-function distance_between_lines_input_element_callback() {
-	$options = get_option( 'tdm_fakitforwp_display_options' );
-	echo '<input type="text" id="distance_between_lines" name="tdm_fakitforwp_display_options[distance_between_lines]" value="' . ( $options != "" ? $options['distance_between_lines'] : "" ) . '" placeholder="E.g. 10px or 1.5em" />';
-
-} // END distance_between_lines_input_element_callback
-
 
 /* ADD ACTION LINKS */
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'tdm_plugin_action_links' );
@@ -280,15 +224,12 @@ function tdm_plugin_row_meta( $links, $file ) {
 }
 
 /* UNINSTALL */
-if ( ! function_exists( 'uninstall_tdm_fakitforwp_for_divi' ) ) {
+if ( ! function_exists( 'uninstall_tdm_fakitforwp' ) ) {
 	function uninstall_tdm_fakitforwp_for_divi() {
-		$options = get_option( 'tdm_fakitforwp_display_options' );
-		if ( ! isset( $options['keep_settings'] ) ) {
-			delete_option( 'tdm_fakitforwp_display_options' );
-		}
+		delete_option( 'tdm_fakitforwp_display_options' );
 	}
 }
-register_uninstall_hook( __FILE__, 'uninstall_tdm_fakitforwp_for_divi' );
+register_uninstall_hook( __FILE__, 'uninstall_tdm_fakitforwp' );
 
 /* INCLUDE DASHBOARD FEED */
 include_once( 'dashboard/dashboard-feed.php' );
