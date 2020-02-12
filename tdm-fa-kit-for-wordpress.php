@@ -59,7 +59,7 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 		 * @return array
 		 */
 		function tdm_plugin_action_links( $links ) {
-			$links[] = '<a href="' . esc_url( get_admin_url( null, 'admin.php?page=tdm_fakitforwp_options' ) ) . '">Settings</a>';
+			$links[] = '<a href="' . esc_url( get_admin_url( null, 'admin.php?page=tdm_fakitforwp' ) ) . '">Settings</a>';
 
 			return $links;
 		}
@@ -99,7 +99,7 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 				'Font Awesome Kit',               // The title to be displayed in the browser window for this page.
 				'Font Awesome Kit',               // The text to be displayed for this menu item
 				'administrator',                  // Which type of users can see this menu item
-				'tdm_fakitforwp_options',         // The unique ID - that is, the slug - for this menu item
+				'tdm_fakitforwp',         // The unique ID - that is, the slug - for this menu item
 				[ $this, 'tdm_fakitforwp_options_display' ]  // The name of the function to call when rendering this menu's page
 			);
 		}
@@ -123,8 +123,8 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 				<!-- Create the form that will be used to render our options -->
 				<form method="post" action="options.php">
 					<?php
-					settings_fields( 'tdm_fakitforwp_options' );
-					do_settings_sections( 'tdm_fakitforwp_options' );
+					settings_fields( 'tdm_fakitforwp_options_group' );
+					do_settings_sections( 'tdm_fakitforwp_options_page' );
 					submit_button();
 					?>
 				</form>
@@ -166,18 +166,18 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 				'fontawesome_settings_section',            // ID used to identify this section and with which to register options
 				'Instructions',                                        // Title to be displayed on the administration page
 				[ $this, 'tdm_fakitforwp_options_callback' ], // Callback used to render the description of the section
-				'tdm_fakitforwp_options'           // Page on which to add this section of options
+				'tdm_fakitforwp_options_page'           // Page on which to add this section of options
 			);
 
 			add_settings_field(
 				'fontawesome_kit_code',                    // ID used to identify the field throughout the theme
 				'Font Awesome Kit Code',                   // The label to the left of the option interface element
 				[ $this, 'tdm_fakitforwp_code_callback' ],            // The name of the function responsible for rendering the option interface
-				'tdm_fakitforwp_options',                 // The page on which this option will be displayed
-				'fontawesome_settings_section',            // The name of the section to which this field belongs
-				array(                                     // The array of arguments to pass to the callback. In this case, just a description.
+				'tdm_fakitforwp_options_page',                 // The page on which this option will be displayed
+				'fontawesome_settings_section'            // The name of the section to which this field belongs
+				/*array(                                     // The array of arguments to pass to the callback. In this case, just a description.
 					'xxxPaste here the Font Awesome Kit code.<br/><em>Don\'t copy the full code, only copy the base of the file name. Don\'t have a code yet? You can <a href="https://use.fontawesome.com/start" target="_blank">get it here</a>.</em>'
-				)
+				)*/
 			);
 
 			$args = array(
@@ -188,15 +188,15 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 
 			// Register the fields with WordPress
 			register_setting(
-				'tdm_fakitforwp_options',   // Settings group name
+				'tdm_fakitforwp_options_group',   // Settings group name
 				'tdm_fakitforwp_options',   // Name of the option
-				$args                       // Arguments
+				'tdm_fakitforwp_validate_input'                       // Arguments
 			);
 
 		}
 
 		/**
-		 *
+		 * Renders the option
 		 */
 		function tdm_fakitforwp_code_callback() {
 			$options = get_option( 'tdm_fakitforwp_options' );
