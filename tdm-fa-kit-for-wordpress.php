@@ -25,7 +25,7 @@ namespace Tdm__Font_Awesome_Kit_for_WordPress;
 
 if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 	/**
-	 * Extension main class, class begins loading on init() function.
+	 * Main Class
 	 */
 	class Tdm__Font_Awesome_Kit_for_WordPress {
 
@@ -50,7 +50,7 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 			// Add script to head
 			add_action( 'wp_head', [ $this, 'child_theme_head_script' ] );
 			add_action( 'admin_head', [ $this, 'child_theme_head_script' ] );
-			
+
 			// Uninstall
 			register_uninstall_hook( __FILE__, 'uninstall_tdm_fakitforwp' );
 		}
@@ -78,9 +78,9 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 		 */
 		function tdm_plugin_row_meta( $links, $file ) {
 			if ( strpos( $file, 'tdm-fa-kit-for-wordpress.php' ) !== false ) {
-				$new_links = array(
+				$new_links = [
 					'<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=N6CX32P44TMQJ" target="_blank"><i class="fa fa-coffee"></i> ' . esc_html__( 'Invite me for a coffee :)', 'tdm-font-awesome-kit-for-wordpress' ) . '</a>'
-				);
+				];
 				$links     = array_merge( $links, $new_links );
 			}
 
@@ -181,9 +181,6 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 				[ $this, 'tdm_fakitforwp_code_callback' ],            // The name of the function responsible for rendering the option interface
 				'tdm_fakitforwp_options_page',                 // The page on which this option will be displayed
 				'fontawesome_settings_section'            // The name of the section to which this field belongs
-				/*array(                                     // The array of arguments to pass to the callback. In this case, just a description.
-					'xxxPaste here the Font Awesome Kit code.<br/><em>Don\'t copy the full code, only copy the base of the file name. Don\'t have a code yet? You can <a href="https://use.fontawesome.com/start" target="_blank">get it here</a>.</em>'
-				)*/
 			);
 
 			// Register the fields with WordPress
@@ -226,7 +223,7 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 		 */
 		function tdm_fakitforwp_validate_input( $input ) {
 			// Create our array for storing the validated options
-			$output = array();
+			$output = [];
 
 			// Loop through each of the incoming options
 			foreach ( $input as $key => $value ) {
