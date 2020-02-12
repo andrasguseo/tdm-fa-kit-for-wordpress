@@ -63,7 +63,7 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 		 * @return array
 		 */
 		function tdm_plugin_action_links( $links ) {
-			$links[] = '<a href="' . esc_url( get_admin_url( null, 'admin.php?page=tdm_fakitforwp' ) ) . '">Settings</a>';
+			$links[] = '<a href="' . esc_url( get_admin_url( null, 'admin.php?page=tdm_fakitforwp' ) ) . '">' . esc_html__( 'Settings', 'tdm-font-awesome-kit-for-wordpress' ) . '</a>';
 
 			return $links;
 		}
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 		function tdm_plugin_row_meta( $links, $file ) {
 			if ( strpos( $file, 'tdm-fa-kit-for-wordpress.php' ) !== false ) {
 				$new_links = array(
-					'<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=N6CX32P44TMQJ" target="_blank"><i class="fa fa-coffee"></i> Invite me for a coffee :)</a>'
+					'<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=N6CX32P44TMQJ" target="_blank"><i class="fa fa-coffee"></i> ' . esc_html__( 'Invite me for a coffee :)', 'tdm-font-awesome-kit-for-wordpress' ) . '</a>'
 				);
 				$links     = array_merge( $links, $new_links );
 			}
@@ -118,8 +118,8 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 
 				<!-- Add the icon to the page -->
 				<div id="icon-themes" class="icon32"></div>
-				<h2>Font Awesome Kit for WordPress Options</h2>
-				<p>version 1.0</p>
+				<h2><?php esc_html_e( 'Font Awesome Kit for WordPress Options', 'tdm-font-awesome-kit-for-wordpress' ); ?></h2>
+				<p><?php esc_html_e( 'version 1.0', 'tdm-font-awesome-kit-for-wordpress' ); ?></p>
 
 				<!-- Make a call to the WordPress function for rendering errors when settings are saved. -->
 				<?php settings_errors(); ?>
@@ -133,9 +133,8 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 					?>
 				</form>
 
-				<p>Please report any bugs to <a href="mailto:andras@divi-magazine.com">andras@divi-magazine.com</a>.</p>
-				<p>If you would like to buy me a coffee,
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=N6CX32P44TMQJ" target="_blank">click here</a>. :-)
+				<p><?php echo sprintf( esc_html__( 'Please report any bugs to %s.', 'tdm-font-awesome-kit-for-wordpress' ), '<a href="mailto:andras@divi-magazine.com">andras@divi-magazine.com</a>' ); ?></p>
+				<p><?php echo sprintf( esc_html__( 'If you would like to buy me a coffee, %sclick here%s. :-)', 'tdm-font-awesome-kit-for-wordpress' ), '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=N6CX32P44TMQJ" target="_blank">', '</a>' ); ?>
 				</p>
 
 			</div><!-- /.wrap -->
@@ -149,9 +148,12 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 		 * in the add_settings_section function.
 		 */
 		function tdm_fakitforwp_options_callback() {
-			echo '<p>Paste the Font Awesome Kit code in the below field.</p>';
-			echo '<p>Don\'t copy the full code, only copy the base of the file name, what you see in bold: <code>&lt;script src="https://kit.fontawesome.com/<strong>{uniquenum}</strong>.js"&gt;&lt;/script&gt;</code></p>';
-			echo '<p>Don\'t have a Font Awesome Kit yet? You can <a href="https://fontawesome.com/start" target="_blank">create one here</a>.' . ' ' . 'If you already have one, you can <a href="https://fontawesome.com/kits" target="_blank">find it here</a>.' . '</p>';
+			$html  = '<p>' . esc_html__( 'Paste the Font Awesome Kit code in the below field.', 'tdm-font-awesome-kit-for-wordpress' ) . '</p>';
+			$html .= '<p>' . esc_html__( 'Don\'t copy the full code, only copy the base of the file name, what you see in bold:', 'tdm-font-awesome-kit-for-wordpress' ) . ' <code>&lt;script src="https://kit.fontawesome.com/<strong>{uniquenum}</strong>.js"&gt;&lt;/script&gt;</code></p>';
+			$html .= '<p>' . sprintf( esc_html__( 'Don\'t have a Font Awesome Kit yet? You can %screate one here%s.', 'tdm-font-awesome-kit-for-wordpress' ), '<a href="https://fontawesome.com/start" target="_blank">', '</a>' ) . ' ';
+			$html .= sprintf( esc_html__( 'If you already have one, you can %sfind it here%s.', 'tdm-font-awesome-kit-for-wordpress' ), '<a href="https://fontawesome.com/kits" target="_blank">', '</a>' ) . '</p>';
+
+			echo $html;
 		}
 
 		/**
@@ -168,26 +170,20 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 			// Register a section
 			add_settings_section(
 				'fontawesome_settings_section',            // ID used to identify this section and with which to register options
-				'Instructions',                                        // Title to be displayed on the administration page
+				__( 'Instructions', 'tdm-font-awesome-kit-for-wordpress' ),                                        // Title to be displayed on the administration page
 				[ $this, 'tdm_fakitforwp_options_callback' ], // Callback used to render the description of the section
 				'tdm_fakitforwp_options_page'           // Page on which to add this section of options
 			);
 
 			add_settings_field(
 				'fontawesome_kit_code',                    // ID used to identify the field throughout the theme
-				'Font Awesome Kit Code',                   // The label to the left of the option interface element
+				__( 'Font Awesome Kit Code', 'tdm-font-awesome-kit-for-wordpress' ),                   // The label to the left of the option interface element
 				[ $this, 'tdm_fakitforwp_code_callback' ],            // The name of the function responsible for rendering the option interface
 				'tdm_fakitforwp_options_page',                 // The page on which this option will be displayed
 				'fontawesome_settings_section'            // The name of the section to which this field belongs
 				/*array(                                     // The array of arguments to pass to the callback. In this case, just a description.
 					'xxxPaste here the Font Awesome Kit code.<br/><em>Don\'t copy the full code, only copy the base of the file name. Don\'t have a code yet? You can <a href="https://use.fontawesome.com/start" target="_blank">get it here</a>.</em>'
 				)*/
-			);
-
-			$args = array(
-				'type' => 'string',
-				'sanitize_callback' => 'tdm_fakitforwp_validate_input',
-				'default' => NULL,
 			);
 
 			// Register the fields with WordPress
@@ -204,10 +200,10 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 		 */
 		function tdm_fakitforwp_code_callback() {
 			$options = get_option( 'tdm_fakitforwp_options' );
-			echo '<p>https://kit.fontawesome.com/<input type="text" id="fontawesome_kit_code" name="tdm_fakitforwp_options[fontawesome_kit_code]" value="' . ( $options != "" ? $options['fontawesome_kit_code'] : "" ) . '"  placeholder="Font Awesome Kit Code" />.js</p>';
+			echo '<p>https://kit.fontawesome.com/<input type="text" id="fontawesome_kit_code" name="tdm_fakitforwp_options[fontawesome_kit_code]" value="' . ( $options != "" ? $options['fontawesome_kit_code'] : "" ) . '"  placeholder="' . esc_html__( 'Font Awesome Kit Code', 'tdm-font-awesome-kit-for-wordpress' ) . '" />.js</p>';
 
 			if( ! empty( $options['fontawesome_kit_code'] ) ) {
-				echo '<p><i class="fab fa-font-awesome-alt fa-2x" style="vertical-align: middle;"></i> &lt;-- If you see the Font Awesome flag here, the code works.</p>';
+				echo '<p><i class="fab fa-font-awesome-alt fa-2x" style="vertical-align: middle;"></i> &lt;-- ' . esc_html__( 'If you see the Font Awesome flag here, the code works.', 'tdm-font-awesome-kit-for-wordpress' ) . '</p>';
 			}
 		}
 

@@ -1,0 +1,98 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Font Awesome Kit for Wordpress\n"
+"POT-Creation-Date: 2020-02-12 23:08+0100\n"
+"PO-Revision-Date: 2020-02-12 22:24+0100\n"
+"Last-Translator: András Guseo <aguseo@gmail.com>\n"
+"Language-Team: András Guseo <aguseo@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: tdm-fa-kit-for-wordpress.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: tdm-fa-kit-for-wordpress.php:66
+msgid "Settings"
+msgstr ""
+
+#: tdm-fa-kit-for-wordpress.php:82
+msgid "Invite me for a coffee :)"
+msgstr ""
+
+#: tdm-fa-kit-for-wordpress.php:121
+msgid "Font Awesome Kit for WordPress Options"
+msgstr ""
+
+#: tdm-fa-kit-for-wordpress.php:122
+msgid "version 1.0"
+msgstr ""
+
+#: tdm-fa-kit-for-wordpress.php:136
+#, php-format
+msgid "Please report any bugs to %s."
+msgstr ""
+
+#: tdm-fa-kit-for-wordpress.php:137
+#, php-format
+msgid "If you would like to buy me a coffee, %sclick here%s. :-)"
+msgstr ""
+
+#: tdm-fa-kit-for-wordpress.php:151
+msgid "Paste the Font Awesome Kit code in the below field."
+msgstr ""
+
+#: tdm-fa-kit-for-wordpress.php:152
+msgid ""
+"Don't copy the full code, only copy the base of the file name, what you see "
+"in bold:"
+msgstr ""
+
+#: tdm-fa-kit-for-wordpress.php:153
+#, php-format
+msgid "Don't have a Font Awesome Kit yet? You can %screate one here%s."
+msgstr ""
+
+#: tdm-fa-kit-for-wordpress.php:154
+#, php-format
+msgid "If you already have one, you can %sfind it here%s."
+msgstr ""
+
+#: tdm-fa-kit-for-wordpress.php:173
+msgid "Instructions"
+msgstr ""
+
+#: tdm-fa-kit-for-wordpress.php:180 tdm-fa-kit-for-wordpress.php:203
+msgid "Font Awesome Kit Code"
+msgstr ""
+
+#: tdm-fa-kit-for-wordpress.php:206
+msgid "If you see the Font Awesome flag here, the code works."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Font Awesome Kit for Wordpress"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://www.divi-magazine.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Add Font Awesome Kit code to WordPress easily. Nothing more, nothing less."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Andras Guseo | The Divi Magazine"
+msgstr ""
