@@ -133,8 +133,8 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 					?>
 				</form>
 
-				<p><?php echo sprintf( esc_html__( 'Please report any bugs to %s.', 'tdm-font-awesome-kit-for-wordpress' ), '<a href="mailto:andras@divi-magazine.com">andras@divi-magazine.com</a>' ); ?></p>
-				<p><?php echo sprintf( esc_html__( 'If you would like to buy me a coffee, %sclick here%s. :-)', 'tdm-font-awesome-kit-for-wordpress' ), '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=N6CX32P44TMQJ" target="_blank">', '</a>' ); ?>
+				<p><?php printf( esc_html__( 'Please report any bugs to %s.', 'tdm-font-awesome-kit-for-wordpress' ), '<a href="mailto:andras@divi-magazine.com">andras@divi-magazine.com</a>' ); ?></p>
+				<p><?php printf( esc_html__( 'If you would like to buy me a coffee, %sclick here%s. :-)', 'tdm-font-awesome-kit-for-wordpress' ), '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=N6CX32P44TMQJ" target="_blank">', '</a>' ); ?>
 				</p>
 
 			</div><!-- /.wrap -->
@@ -170,14 +170,14 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 			// Register a section
 			add_settings_section(
 				'fontawesome_settings_section',                                 // ID used to identify this section and with which to register options
-				__( 'Instructions', 'tdm-font-awesome-kit-for-wordpress' ),     // Title to be displayed on the administration page
+				esc_html__( 'Instructions', 'tdm-font-awesome-kit-for-wordpress' ),     // Title to be displayed on the administration page
 				[ $this, 'tdm_fakitforwp_options_callback' ],                   // Callback used to render the description of the section
 				'tdm_fakitforwp_options_page'                                   // Page on which to add this section of options
 			);
 
 			add_settings_field(
 				'fontawesome_kit_code',                                                 // ID used to identify the field throughout the theme
-				__( 'Font Awesome Kit Code', 'tdm-font-awesome-kit-for-wordpress' ),    // The label to the left of the option interface element
+				esc_html__( 'Font Awesome Kit Code', 'tdm-font-awesome-kit-for-wordpress' ),    // The label to the left of the option interface element
 				[ $this, 'tdm_fakitforwp_code_callback' ],                              // The name of the function responsible for rendering the option interface
 				'tdm_fakitforwp_options_page',                                          // The page on which this option will be displayed
 				'fontawesome_settings_section'                                          // The name of the section to which this field belongs

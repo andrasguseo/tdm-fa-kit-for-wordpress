@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Font Awesome Kit for Wordpress\n"
 "POT-Creation-Date: 2020-02-12 23:20+0100\n"
-"PO-Revision-Date: 2020-02-12 23:20+0100\n"
+"PO-Revision-Date: 2020-02-12 23:23+0100\n"
 "Last-Translator: András Guseo <aguseo@gmail.com>\n"
 "Language-Team: András Guseo <aguseo@gmail.com>\n"
 "Language: hu\n"
@@ -71,7 +71,7 @@ msgstr "Ha már van egy, %sitt találod meg%s."
 
 #: tdm-fa-kit-for-wordpress.php:173
 msgid "Instructions"
-msgstr "Használat"
+msgstr "Hasz<a href=\"https://andrasguseo.com\">nála</a>t"
 
 #: tdm-fa-kit-for-wordpress.php:180 tdm-fa-kit-for-wordpress.php:200
 msgid "Font Awesome Kit Code"
