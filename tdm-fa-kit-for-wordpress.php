@@ -207,7 +207,7 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 			echo '<p>https://kit.fontawesome.com/<input type="text" id="fontawesome_kit_code" name="tdm_fakitforwp_options[fontawesome_kit_code]" value="' . ( $options != "" ? $options['fontawesome_kit_code'] : "" ) . '"  placeholder="Font Awesome Kit Code" />.js</p>';
 
 			if( ! empty( $options['fontawesome_kit_code'] ) ) {
-				echo '<i class="fab fa-font-awesome-alt fa-2x"></i> &lt;-- If you see the Font Awesome flag here, the code works.';
+				echo '<p><i class="fab fa-font-awesome-alt fa-2x" style="vertical-align: middle;"></i> &lt;-- If you see the Font Awesome flag here, the code works.</p>';
 			}
 		}
 
