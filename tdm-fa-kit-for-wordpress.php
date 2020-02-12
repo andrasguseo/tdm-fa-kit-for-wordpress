@@ -1,8 +1,9 @@
-<?php
+<?php /** @noinspection SpellCheckingInspection */
+/** @noinspection PhpUndefinedFunctionInspection */
 /**
- * Plugin Name: TDM: Font Awesome Kit for Wordpress
+ * Plugin Name: Font Awesome Kit for Wordpress
  * Plugin URI: https://www.divi-magazine.com
- * Description: Add Font Awesome Kit code to WordPress easily.
+ * Description: Add Font Awesome Kit code to WordPress easily. Nothing more, nothing less.
  * Version: 1.0
  * Author: Andras Guseo | The Divi Magazine
  * Author URI: https://www.divi-magazine.com
@@ -10,15 +11,17 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
+$plugin_version = "1.0";
+
 /* ADDING SUBMENU */
 function tdm_fakitforwp_menu() {
 	add_submenu_page(
-		'options-general.php',              // The menu where it appears
-		'Font Awesome Kit',    // The title to be displayed in the browser window for this page.
-		'Font Awesome',                     // The text to be displayed for this menu item
-		'administrator',                    // Which type of users can see this menu item
-		'tdm_fakitforwp_options',          // The unique ID - that is, the slug - for this menu item
-		'tdm_fakitforwp_options_display',  // The name of the function to call when rendering this menu's page
+		'options-general.php',            // The menu where it appears
+		'Font Awesome Kit',               // The title to be displayed in the browser window for this page.
+		'Font Awesome Kit',                   // The text to be displayed for this menu item
+		'administrator',                  // Which type of users can see this menu item
+		'tdm_fakitforwp_options',         // The unique ID - that is, the slug - for this menu item
+		'tdm_fakitforwp_options_display'  // The name of the function to call when rendering this menu's page
 	);
 } // end tdm_fakitforwp_menu
 
@@ -33,7 +36,7 @@ function tdm_fakitforwp_options_display() {
 		<!-- Add the icon to the page -->
 		<div id="icon-themes" class="icon32"></div>
 		<h2>Font Awesome Kit for WordPress Options</h2>
-		<p>version 2.4</p>
+		<p>version 1.0</p>
 		<!-- Make a call to the WordPress function for rendering errors when settings are saved. -->
 		<?php settings_errors(); ?>
 
@@ -61,7 +64,7 @@ function child_theme_head_script() {
 	$options = get_option( 'tdm_fakitforwp_display_options' );
 	if ( isset( $options['enable_fontawesome'] ) && $options['enable_fontawesome'] ) {
 		?>
-		<script src="https://kit.fontawesome.com/<?php echo $options['fontawesome_embed_code'] ?>.js" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/<?php echo $options['fontawesome_kit_code'] ?>.js" crossorigin="anonymous"></script>
 	<?php }
 }
 
@@ -85,29 +88,30 @@ function tdm_fakitforwp_initialize_plugin_options() {
 		'fontawesome_settings_section',            // ID used to identify this section and with which to register options
 		'',                                        // Title to be displayed on the administration page
 		'tdm_fakitforwp_general_options_callback', // Callback used to render the description of the section
-		'tdm_fakitforwp_display_options'            // Page on which to add this section of options
+		'tdm_fakitforwp_display_options'           // Page on which to add this section of options
 	);
 
 	// INTRODUCE THE FIELDS
+	/* Disabling for now
 	add_settings_field(
 		'enable_fontawesome',                        // ID used to identify the field throughout the theme
-		'Enable Font Awesome',                        // The label to the left of the option interface element
+		'Enable Font Awesome',                       // The label to the left of the option interface element
 		'tdm_toggle_fakitforwp_callback',            // The name of the function responsible for rendering the option interface
 		'tdm_fakitforwp_display_options',            // The page on which this option will be displayed
-		'fontawesome_settings_section',                // The name of the section to which this field belongs
-		array(                                        // The array of arguments to pass to the callback. In this case, just a description.
+		'fontawesome_settings_section',              // The name of the section to which this field belongs
+		array(                                       // The array of arguments to pass to the callback. In this case, just a description.
 			'Activate this setting to load Font Awesome for your Divi Builder powered site.<br/><em>If you are loading Font Awesome through another plugin already (like WP Font Awesome, Better Font Awesome, Font Awesome Icons etc.), then disable this option, otherwise it will be loaded more times wasting resources. If you are using this current plugin only, then enable it.</em>'
 		)
 	);
-
+	*/
 	add_settings_field(
-		'fontawesome_embed_code',                    // ID used to identify the field throughout the theme
-		'Font Awesome Embed Code',                    // The label to the left of the option interface element
-		'tdm_fakitforwp_embed_code_callback',            // The name of the function responsible for rendering the option interface
-		'tdm_fakitforwp_display_options',            // The page on which this option will be displayed
-		'fontawesome_settings_section',                // The name of the section to which this field belongs
-		array(                                        // The array of arguments to pass to the callback. In this case, just a description.
-			'Paste here the Font Awesome Embed Code that you received by email.<br/><em>Don\'t copy the full code, only copy the base of the file name. Don\'t have a code yet? You can <a href="https://fontawesome.com/v4.7.0/get-started/" target="_blank">get it here</a>.</em>'
+		'fontawesome_kit_code',                    // ID used to identify the field throughout the theme
+		'Font Awesome Kit Code',                   // The label to the left of the option interface element
+		'tdm_fakitforwp_code_callback',            // The name of the function responsible for rendering the option interface
+		'tdm_fakitforwp_display_options',          // The page on which this option will be displayed
+		'fontawesome_settings_section',            // The name of the section to which this field belongs
+		array(                                     // The array of arguments to pass to the callback. In this case, just a description.
+			'Paste here the Font Awesome Kit code.<br/><em>Don\'t copy the full code, only copy the base of the file name. Don\'t have a code yet? You can <a href="https://use.fontawesome.com/start" target="_blank">get it here</a>.</em>'
 		)
 	);
 
@@ -187,12 +191,12 @@ function tdm_toggle_fakitforwp_callback( $args ) {
 
 } // END tdm_toggle_fakitforwp_callback
 
-function tdm_fakitforwp_embed_code_callback() {
+function tdm_fakitforwp_code_callback() {
 	$options = get_option( 'tdm_fakitforwp_display_options' );
-	echo 'https://kit.fontawesome.com/<input type="text" id="fontawesome_embed_code" name="tdm_fakitforwp_display_options[fontawesome_embed_code]" value="' . ( $options != "" ? $options['fontawesome_embed_code'] : "" ) . '" crossorigin="anonymous" placeholder="Font Awesome Embed Code" />.js   (You can get the code <a href="https://fontawesome.com/start" target="_blank">here</a>.</em>)<br/>';
+	echo 'https://kit.fontawesome.com/<input type="text" id="fontawesome_kit_code" name="tdm_fakitforwp_display_options[fontawesome_kit_code]" value="' . ( $options != "" ? $options['fontawesome_kit_code'] : "" ) . '"  placeholder="Font Awesome Embed Code" />.js   (You can get the code <a href="https://fontawesome.com/start" target="_blank">here</a>.</em>)<br/>';
 	echo 'Paste here the Font Awesome Kit code. This field is required, it will not work without this.<br/><em>Don\'t copy the full code, only copy the base of the file name, what you see in bold: &lt;script src="https://kit.fontawesome.com/<strong>{uniquenum}</strong>.js"&gt;&lt;/script&gt;<br/>Don\'t have a code yet? You can <a href="https://fontawesome.com/start" target="_blank">get it here</a>.</em>';
 
-} // END tdm_fakitforwp_embed_code_callback
+} // END tdm_fakitforwp_code_callback
 
 function tdm_toggle_load_anyway_callback( $args ) {
 
@@ -232,7 +236,7 @@ if ( ! function_exists( 'uninstall_tdm_fakitforwp' ) ) {
 register_uninstall_hook( __FILE__, 'uninstall_tdm_fakitforwp' );
 
 /* INCLUDE DASHBOARD FEED */
-include_once( 'dashboard/dashboard-feed.php' );
+// include_once( 'dashboard/dashboard-feed.php' );
 
 
 ?>
