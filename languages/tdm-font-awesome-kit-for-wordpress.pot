@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Font Awesome Kit for Wordpress\n"
-"POT-Creation-Date: 2020-02-12 23:20+0100\n"
+"POT-Creation-Date: 2020-02-13 10:51+0100\n"
 "PO-Revision-Date: 2020-02-12 22:24+0100\n"
 "Last-Translator: András Guseo <aguseo@gmail.com>\n"
 "Language-Team: András Guseo <aguseo@gmail.com>\n"
@@ -21,61 +21,61 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: tdm-fa-kit-for-wordpress.php:66
+#: tdm-fa-kit-for-wordpress.php:67
 msgid "Settings"
 msgstr ""
 
-#: tdm-fa-kit-for-wordpress.php:82
+#: tdm-fa-kit-for-wordpress.php:83
 msgid "Invite me for a coffee :)"
 msgstr ""
 
-#: tdm-fa-kit-for-wordpress.php:121
+#: tdm-fa-kit-for-wordpress.php:125
 msgid "Font Awesome Kit for WordPress Options"
 msgstr ""
 
-#: tdm-fa-kit-for-wordpress.php:122
+#: tdm-fa-kit-for-wordpress.php:126
 msgid "version 1.0"
 msgstr ""
 
-#: tdm-fa-kit-for-wordpress.php:136
+#: tdm-fa-kit-for-wordpress.php:140
 #, php-format
 msgid "Please report any bugs to %s."
 msgstr ""
 
-#: tdm-fa-kit-for-wordpress.php:137
+#: tdm-fa-kit-for-wordpress.php:141
 #, php-format
 msgid "If you would like to buy me a coffee, %sclick here%s. :-)"
 msgstr ""
 
-#: tdm-fa-kit-for-wordpress.php:151
+#: tdm-fa-kit-for-wordpress.php:155
 msgid "Paste the Font Awesome Kit code in the below field."
 msgstr ""
 
-#: tdm-fa-kit-for-wordpress.php:152
+#: tdm-fa-kit-for-wordpress.php:156
 msgid ""
 "Don't copy the full code, only copy the base of the file name, what you see "
 "in bold:"
 msgstr ""
 
-#: tdm-fa-kit-for-wordpress.php:153
+#: tdm-fa-kit-for-wordpress.php:157
 #, php-format
 msgid "Don't have a Font Awesome Kit yet? You can %screate one here%s."
 msgstr ""
 
-#: tdm-fa-kit-for-wordpress.php:154
+#: tdm-fa-kit-for-wordpress.php:158
 #, php-format
 msgid "If you already have one, you can %sfind it here%s."
 msgstr ""
 
-#: tdm-fa-kit-for-wordpress.php:173
+#: tdm-fa-kit-for-wordpress.php:177
 msgid "Instructions"
 msgstr ""
 
-#: tdm-fa-kit-for-wordpress.php:180 tdm-fa-kit-for-wordpress.php:200
+#: tdm-fa-kit-for-wordpress.php:184 tdm-fa-kit-for-wordpress.php:204
 msgid "Font Awesome Kit Code"
 msgstr ""
 
-#: tdm-fa-kit-for-wordpress.php:203
+#: tdm-fa-kit-for-wordpress.php:207
 msgid "If you see the Font Awesome flag here, the code works."
 msgstr ""
 
@@ -90,7 +90,7 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Add Font Awesome Kit code to WordPress easily. Nothing more, nothing less."
+"Easily add Font Awesome Kit code to WordPress. Nothing more, nothing less."
 msgstr ""
 
 #. Author of the plugin/theme

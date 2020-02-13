@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Font Awesome Kit for Wordpress
  * Plugin URI:      https://www.divi-magazine.com
- * Description:     Add Font Awesome Kit code to WordPress easily. Nothing more, nothing less.
+ * Description:     Easily add Font Awesome Kit code to WordPress. Nothing more, nothing less.
  * Version:         1.0
  * Author:          Andras Guseo | The Divi Magazine
  * Author URI:      https://www.divi-magazine.com

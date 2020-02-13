@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Font Awesome Kit for Wordpress\n"
-"POT-Creation-Date: 2020-02-12 23:20+0100\n"
-"PO-Revision-Date: 2020-02-12 23:32+0100\n"
+"POT-Creation-Date: 2020-02-13 10:51+0100\n"
+"PO-Revision-Date: 2020-02-13 10:52+0100\n"
 "Last-Translator: András Guseo <aguseo@gmail.com>\n"
 "Language-Team: András Guseo <aguseo@gmail.com>\n"
 "Language: hu\n"
@@ -16,42 +16,42 @@ msgstr ""
 "X-Poedit-WPHeader: tdm-fa-kit-for-wordpress.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: tdm-fa-kit-for-wordpress.php:66
+#: tdm-fa-kit-for-wordpress.php:67
 msgid "Settings"
 msgstr "Beállítások"
 
-#: tdm-fa-kit-for-wordpress.php:82
+#: tdm-fa-kit-for-wordpress.php:83
 msgid "Invite me for a coffee :)"
 msgstr "Hívj meg egy kávéra. :)"
 
-#: tdm-fa-kit-for-wordpress.php:121
+#: tdm-fa-kit-for-wordpress.php:125
 msgid "Font Awesome Kit for WordPress Options"
 msgstr "Font Awesome Kit a WordPresshez Beállítások"
 
-#: tdm-fa-kit-for-wordpress.php:122
+#: tdm-fa-kit-for-wordpress.php:126
 msgid "version 1.0"
 msgstr "1.0-ás verzió"
 
-#: tdm-fa-kit-for-wordpress.php:136
+#: tdm-fa-kit-for-wordpress.php:140
 #, php-format
 msgid "Please report any bugs to %s."
 msgstr "Kérlek, jelezd a hibákat az %s email címen."
 
-#: tdm-fa-kit-for-wordpress.php:137
+#: tdm-fa-kit-for-wordpress.php:141
 #, php-format
 msgid "If you would like to buy me a coffee, %sclick here%s. :-)"
 msgstr "%sKattints ide%s, ha megspendíroznál nekem egy kávét. :-)"
 
-#: tdm-fa-kit-for-wordpress.php:151
+#: tdm-fa-kit-for-wordpress.php:155
 msgid "Paste the Font Awesome Kit code in the below field."
 msgstr "Másold a Font Awesome Kit kódot az alábbi mezőbe."
 
-#: tdm-fa-kit-for-wordpress.php:152
+#: tdm-fa-kit-for-wordpress.php:156
 msgid ""
 "Don't copy the full code, only copy the base of the file name, what you see "
 "in bold:"
@@ -59,25 +59,25 @@ msgstr ""
 "Nem szükséges az egész kódot bemásolni, csak a fájl nevet kiterjesztés "
 "nélkül, ami itt félkövérrel van kiemelve: "
 
-#: tdm-fa-kit-for-wordpress.php:153
+#: tdm-fa-kit-for-wordpress.php:157
 #, php-format
 msgid "Don't have a Font Awesome Kit yet? You can %screate one here%s."
 msgstr "Még nincs Font Awesome Kit-et? %sItt készíthetsz egyet.%s"
 
-#: tdm-fa-kit-for-wordpress.php:154
+#: tdm-fa-kit-for-wordpress.php:158
 #, php-format
 msgid "If you already have one, you can %sfind it here%s."
 msgstr "Ha már van egy, %sitt találod meg%s."
 
-#: tdm-fa-kit-for-wordpress.php:173
+#: tdm-fa-kit-for-wordpress.php:177
 msgid "Instructions"
 msgstr "Használat"
 
-#: tdm-fa-kit-for-wordpress.php:180 tdm-fa-kit-for-wordpress.php:200
+#: tdm-fa-kit-for-wordpress.php:184 tdm-fa-kit-for-wordpress.php:204
 msgid "Font Awesome Kit Code"
 msgstr "Font Awesome Kit kód"
 
-#: tdm-fa-kit-for-wordpress.php:203
+#: tdm-fa-kit-for-wordpress.php:207
 msgid "If you see the Font Awesome flag here, the code works."
 msgstr "Ha a Font Awesome zászló itt látható, akkor a kód működik."
 
@@ -92,7 +92,7 @@ msgstr "https://www.divi-magazine.com"
 
 #. Description of the plugin/theme
 msgid ""
-"Add Font Awesome Kit code to WordPress easily. Nothing more, nothing less."
+"Easily add Font Awesome Kit code to WordPress. Nothing more, nothing less."
 msgstr ""
 "Add hozzá a Font Awesome Kit kódot a WordPress oldaladhoz. Se több, se "
 "kevesebb."
