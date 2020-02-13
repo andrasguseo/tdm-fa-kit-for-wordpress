@@ -53,7 +53,7 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 
 			// Uninstall
 			//register_uninstall_hook( __FILE__, [ $this, 'uninstall_tdm_fakitforwp' ] );
-			register_activation_hook( __FILE__, [$ this, 'tdm_fakitforwp_activate' ] );
+			register_activation_hook( __FILE__, [ $this, 'tdm_fakitforwp_activate' ] );
 		}
 
 		/**
@@ -92,7 +92,7 @@ if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
 		 * Handles option deletion on uninstall
 		 */
 		function tdm_fakitforwp_activate(){
-			register_uninstall_hook( __FILE__, [ $this, 'uninstall_tdm_fakitforwp' ] );
+			register_uninstall_hook( __FILE__, 'uninstall_tdm_fakitforwp' );
 		}
 		function uninstall_tdm_fakitforwp() {
 			delete_option( 'tdm_fakitforwp_options' );
