@@ -23,7 +23,7 @@
 
 namespace TDM\FA_Kit_For_Wp;
 
-if ( ! class_exists( 'Main' ) ) {
+if ( ! class_exists( 'Main::class' ) ) {
 	/**
 	 * Main Class
 	 */
@@ -38,14 +38,14 @@ if ( ! class_exists( 'Main' ) ) {
 			load_plugin_textdomain( 'tdm-font-awesome-kit-for-wordpress', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 
 			// Add action links
-			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'tdm_plugin_action_links' ] );
-			add_filter( 'plugin_row_meta', [ $this, 'tdm_plugin_row_meta' ], 10, 2 );
+			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'action_links' ] );
+			add_filter( 'plugin_row_meta', [ $this, 'donate_button' ], 10, 2 );
 
 			// Initialize plugin options
-			add_action( 'admin_init', [ $this, 'tdm_fakitforwp_initialize_plugin_options' ] );
+			add_action( 'admin_init', [ $this, 'initialize_plugin_options' ] );
 
 			// Render plugin options page
-			add_action( 'admin_menu', [ $this, 'tdm_fakitforwp_menu' ], 99 );
+			add_action( 'admin_menu', [ $this, 'add_menu_page' ], 99 );
 
 			// Add script to head
 			add_action( 'wp_head', [ $this, 'child_theme_head_script' ] );
@@ -63,7 +63,7 @@ if ( ! class_exists( 'Main' ) ) {
 		 *
 		 * @return array
 		 */
-		function tdm_plugin_action_links( $links ) {
+		function action_links( $links ) {
 			$links[] = '<a href="' . esc_url( get_admin_url( null, 'admin.php?page=tdm_fakitforwp' ) ) . '">' . esc_html__( 'Settings', 'tdm-font-awesome-kit-for-wordpress' ) . '</a>';
 
 			return $links;
@@ -77,7 +77,7 @@ if ( ! class_exists( 'Main' ) ) {
 		 *
 		 * @return array
 		 */
-		function tdm_plugin_row_meta( $links, $file ) {
+		function donate_button( $links, $file ) {
 			if ( strpos( $file, 'tdm-fa-kit-for-wordpress.php' ) !== false ) {
 				$new_links = [
 					'<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=N6CX32P44TMQJ" target="_blank"><i class="fa fa-coffee"></i> ' . esc_html__( 'Invite me for a coffee :)', 'tdm-font-awesome-kit-for-wordpress' ) . '</a>'
@@ -91,17 +91,17 @@ if ( ! class_exists( 'Main' ) ) {
 		/**
 		 * Handles option deletion on uninstall
 		 */
-		function tdm_fakitforwp_activate(){
+		function activate(){
 			register_uninstall_hook( __FILE__, 'uninstall_tdm_fakitforwp' );
 		}
-		function uninstall_tdm_fakitforwp() {
+		function uninstall() {
 			delete_option( 'tdm_fakitforwp_options' );
 		}
 
 		/**
 		 * Adding the submenu page
 		 */
-		function tdm_fakitforwp_menu() {
+		function add_menu_page() {
 			add_submenu_page(
 				'options-general.php',                          // The menu where it appears
 				'Font Awesome Kit',                             // The title to be displayed in the browser window for this page.
@@ -115,7 +115,7 @@ if ( ! class_exists( 'Main' ) ) {
 		/**
 		 * Rendering the options page
 		 */
-		function tdm_fakitforwp_options_display() {
+		function render_options_page() {
 			?>
 			<!-- Create a header in the default WordPress 'wrap' container -->
 			<div class="wrap">
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Main' ) ) {
 		 * It is called from the 'tdm_fakitforwp_initialize_plugin_options' function by being passed as a parameter
 		 * in the add_settings_section function.
 		 */
-		function tdm_fakitforwp_options_callback() {
+		function options_callback() {
 			$html  = '<p>' . esc_html__( 'Paste the Font Awesome Kit code in the below field.', 'tdm-font-awesome-kit-for-wordpress' ) . '</p>';
 			$html .= '<p>' . esc_html__( 'Don\'t copy the full code, only copy the base of the file name, what you see in bold:', 'tdm-font-awesome-kit-for-wordpress' ) . ' <code>&lt;script src="https://kit.fontawesome.com/<strong>{uniquenum}</strong>.js"&gt;&lt;/script&gt;</code></p>';
 			$html .= '<p>' . sprintf( esc_html__( 'Don\'t have a Font Awesome Kit yet? You can %screate one here%s.', 'tdm-font-awesome-kit-for-wordpress' ), '<a href="https://fontawesome.com/start" target="_blank">', '</a>' ) . ' ';
@@ -164,7 +164,7 @@ if ( ! class_exists( 'Main' ) ) {
 		 * Initializes the theme options page by registering the Sections, Fields, and Settings.
 		 * This function is registered with the 'admin_init' hook.
 		 */
-		function tdm_fakitforwp_initialize_plugin_options() {
+		function initialize_plugin_options() {
 
 			// Check if the option exists. If not, add it.
 			if ( false == get_option( 'tdm_fakitforwp_options' ) ) {
@@ -199,7 +199,7 @@ if ( ! class_exists( 'Main' ) ) {
 		/**
 		 * Renders the option
 		 */
-		function tdm_fakitforwp_code_callback() {
+		function code_callback() {
 			$options = get_option( 'tdm_fakitforwp_options' );
 			echo '<p>https://kit.fontawesome.com/<input type="text" id="fontawesome_kit_code" name="tdm_fakitforwp_options[fontawesome_kit_code]" value="' . ( $options != "" ? $options['fontawesome_kit_code'] : "" ) . '"  placeholder="' . esc_html__( 'Font Awesome Kit Code', 'tdm-font-awesome-kit-for-wordpress' ) . '" />.js</p>';
 
@@ -225,7 +225,7 @@ if ( ! class_exists( 'Main' ) ) {
 		 *
 		 * @return mixed
 		 */
-		function tdm_fakitforwp_validate_input( $input ) {
+		function validate_input( $input ) {
 			// Create our array for storing the validated options
 			$output = [];
 
@@ -250,4 +250,4 @@ if ( ! class_exists( 'Main' ) ) {
 	}
 }
 
-$tdm_fakitforwp = new Tdm__Font_Awesome_Kit_for_WordPress();
+$tdm_fakitforwp = new Main();
