@@ -21,13 +21,13 @@
  *     GNU General Public License for more details.
  */
 
-namespace Tdm__Font_Awesome_Kit_for_WordPress;
+namespace TDM\FA_Kit_For_Wp;
 
-if ( ! class_exists( 'Tdm__Font_Awesome_Kit_for_WordPress' ) ) {
+if ( ! class_exists( 'Main' ) ) {
 	/**
 	 * Main Class
 	 */
-	class Tdm__Font_Awesome_Kit_for_WordPress {
+	class Main {
 
 		/**
 		 * Setup the plugin's properties.
